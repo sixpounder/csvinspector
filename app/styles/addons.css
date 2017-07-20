@@ -1,0 +1,15 @@
+.mt20 {
+  margin-top: 20px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.wrap-word {
+  word-wrap: break-word; 
+}

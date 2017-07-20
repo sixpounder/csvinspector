@@ -1,0 +1,53 @@
+<div>
+  
+  <div class="alert alert-danger" ng-if="error">
+    <strong>An error occurred while parsing the file :(</strong>
+    <br/>
+    Please double check your CSV
+  </div>
+
+  <form ng-class="{ mt20: error }">
+    <div class="row" ng-hide="data || loading || parsing">
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center mt20">
+        <input style="display:inline" type="file" ng-file-select="onFileSelect($files)" />
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 text-center mt20">
+        <b>Separator</b>
+        <span uib-dropdown>
+          <button uib-dropdown-toggle class="btn btn-sm btn-default">
+            <b ng-bind="separator"></b>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="separator-dropdown">
+            <li ng-repeat="choice in availableSeparators">
+              <a ng-click="setSeparator(choice)">{{ choice }}</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    
+  </form>
+
+  <div class="alert alert-warning" ng-if="skippedItems && skippedItems !== 0">
+    <strong>Warning</strong>: {{ skippedItems }} items were skipped due to errors
+  </div>
+  <div class="mt20">
+    <progress visible="loading" value="progress"></progress>
+    <div ng-show="parsing">Parsing file...</div>
+    <progress visible="parsing" value="parseProgress"></progress>
+    <display ng-model="data"></display>
+  </div>
+  <!-- <div class="search">
+    <input placeholder="Ricerca..." class="input-search form-control" role="search" type="text" ng-model="filterText" ng-model-options="{ debounce: 300 }"/>
+    
+  </div>
+  <div class="list-group" style="margin-top: 20px">
+    <span class="list-group-item" ng-repeat="(t,k) in trx">
+      <span class="hidden json">{{ k }}</span>
+      <h4 class="list-group-item-heading">{{t}}</h4>
+      
+      <json-tree object="k" start-expanded="true" root-name="Attributi"></json-tree>
+    </span>
+  </div> -->
+</div>

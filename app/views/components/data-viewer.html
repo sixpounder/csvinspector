@@ -1,0 +1,26 @@
+<div>
+  <div class="row" ng-show="data">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+      <input placeholder="Search any word or 'property::value' to filter a specific field" class="input-search form-control" role="search" type="text" ng-model="filterText" ng-model-options="{ debounce: 300 }"/>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-right">
+      <button class="btn btn-warning btn-small hidden-xs" ng-click="reset()">Chiudi file</button>
+      <button class="btn btn-warning btn-small hidden-lg hidden-md hidden-sm" ng-click="reset()">
+        <i class="fa fa-close"></i>
+      </button>
+    </div>
+  </div>
+  <ul class="list-group mt20">
+    <li class="list-group-item" ng-repeat="item in data" ng-show="showAll || item.dataViewerHidden === false">
+      <ul style="list-style-type: none">
+        <li class="mt20 wrap-word" ng-repeat="(k, v) in item" ng-if="v">
+          <span class="label label-info"> {{k}} </span>
+          <code class="ml20 searchable" ng-if="_.isObject(v)">{{ v }}</code>
+          <span class="ml20 searchable" ng-if="!_.isObject(v)" ng-class="{'text-bold': _.isString(v)}"> {{v}} </span>
+        </li>
+        
+      </ul>
+      
+    </li>
+  </ul>
+</div>
