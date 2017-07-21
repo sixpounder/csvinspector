@@ -12,7 +12,7 @@
 var meme = [
 '',
 '',
-'      INSPECT ALL THE CVS!',
+'      INSPECT ALL THE CSV!',
 '',
 '',
 '─────────────────────────────▄██▄',

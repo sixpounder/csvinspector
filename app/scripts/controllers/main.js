@@ -61,10 +61,15 @@ angular.module('csvinspector')
       $scope.skippedItems = 0;
       $scope.error = null;
       fileReader.readAsText($scope.file, $scope).then(function(result) {
+        $scope.loading = false;
         $scope.parsing = true;
         
         parseProperties(result);
         
+      }).catch(function(err) {
+        $scope.error = err;
+        $scope.loading = false;
+        $scope.parsing = false;
       });
     };
 

@@ -3,7 +3,9 @@
   <div class="alert alert-danger" ng-if="error">
     <strong>An error occurred while parsing the file :(</strong>
     <br/>
-    Please double check your CSV
+    <b ng-bind="error"></b>
+    <br/>
+    <p ng-if="error.stack" ng-bind="error.stack"></p>
   </div>
 
   <form ng-class="{ mt20: error }">
