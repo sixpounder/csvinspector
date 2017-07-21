@@ -35,21 +35,9 @@
     <strong>Warning</strong>: {{ skippedItems }} items were skipped due to errors
   </div>
   <div class="mt20">
-    <progress visible="loading" value="progress"></progress>
+    <!-- <progress visible="loading" value="progress"></progress> -->
     <div ng-show="parsing">Parsing file...</div>
-    <progress visible="parsing" value="parseProgress"></progress>
+    <progress ng-show="parsing" value="parseProgress"></progress>
     <display ng-model="data"></display>
   </div>
-  <!-- <div class="search">
-    <input placeholder="Ricerca..." class="input-search form-control" role="search" type="text" ng-model="filterText" ng-model-options="{ debounce: 300 }"/>
-    
-  </div>
-  <div class="list-group" style="margin-top: 20px">
-    <span class="list-group-item" ng-repeat="(t,k) in trx">
-      <span class="hidden json">{{ k }}</span>
-      <h4 class="list-group-item-heading">{{t}}</h4>
-      
-      <json-tree object="k" start-expanded="true" root-name="Attributi"></json-tree>
-    </span>
-  </div> -->
 </div>
